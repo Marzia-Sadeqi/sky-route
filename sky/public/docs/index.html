@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SkyRoute – Project Documents</title>
+<style>body{font-family:Inter,Arial,sans-serif;background:#f4f7fb;color:#1e2a3b;line-height:1.6;margin:0}main{max-width:960px;margin:auto;padding:24px}h1{color:#2f7de1}h2{margin-top:44px;border-bottom:2px solid #dbe7f8;padding-bottom:6px}h3{margin-top:22px}table{border-collapse:collapse;width:100%;background:#fff;margin:12px 0;font-size:.92rem}th,td{border:1px solid #dbe7f8;padding:8px;text-align:left;vertical-align:top}th{background:#e8f1fd}.box{background:#fff;padding:16px;border-radius:12px;box-shadow:0 2px 10px rgba(40,70,120,.08);margin:12px 0;overflow-x:auto}pre{white-space:pre;overflow-x:auto;font-size:.8rem}nav a{margin-right:10px;color:#2f7de1}.mermaid{text-align:center}</style></head><body><main>
+<h1>SkyRoute – Booking Flights from Kabul</h1><p>NetLinks Software Engineering in Practice · Project Documents · 2026</p>
+<nav><a href="#s1">1 Proposal</a><a href="#s2">2 Requirements</a><a href="#s3">3 Use Cases</a><a href="#s4">4 ERD</a><a href="#s5">5 Sitemap</a><a href="#s6">6 User Flows</a><a href="#s7">7 Wireframes</a><a href="#s8">8 Testing</a><a href="#s9">9 Presentation</a><a href="#s10">10 Team Record</a></nav>
+
+<h2 id="s1">1. Project Proposal (Appendix A)</h2>
+<table><tr><th>Team name</th><td>SkyRoute Team</td></tr><tr><th>Project title</th><td>SkyRoute – An online platform to book tickets from Kabul to beautiful places in the world</td></tr>
+<tr><th>Team members</th><td>Project Manager, Business Analyst, UI/UX Designer, Frontend Developer, QA &amp; Documentation (write your real names here)</td></tr>
+<tr><th>Problem statement</th><td>People in Kabul often use many agents, phone calls and websites to compare places and prices. This takes time, and prices are not always clear. They need one simple place to find a destination and book a ticket.</td></tr>
+<tr><th>Evidence (to collect)</th><td>Interview 5–10 people (students, families, workers). Ask: How do you book now? What is hard? What would help? Write their answers in Section 2.1.</td></tr>
+<tr><th>Target users</th><td>Travellers from Kabul (students, families, workers, tourists). Stakeholders: travel agents, airlines, website administrator.</td></tr>
+<tr><th>Proposed solution</th><td>A responsive website where users explore beautiful places, see prices, book a ticket with a simple form, and manage their trips.</td></tr>
+<tr><th>Objectives</th><td>1) Show destinations with photos and prices. 2) Let users book in under 3 minutes. 3) Let users see and cancel bookings. 4) Work on phone, tablet and desktop.</td></tr>
+<tr><th>Scope – included</th><td>Home, destinations with search/filter, booking form with validation and price calculator, My Trips, About, Contact, FAQ, videos.</td></tr>
+<tr><th>Scope – excluded</th><td>Real payment, real airline systems, user accounts and a real database (the demo saves bookings in the browser).</td></tr>
+<tr><th>Expected benefits</th><td>Saves time, clear prices, easy planning, one place for all trips.</td></tr></table>
+
+<h2 id="s2">2. Requirement Specification</h2>
+<h3>2.1 Requirement gathering – interview questions</h3>
+<div class="box">1) How do you book a flight today? 2) What problems do you face? 3) What do you want to see before booking? 4) Which devices do you use? 5) What would make you trust a booking website?<br><i>Record the answers here after your interviews.</i></div>
+<h3>2.2 Functional requirements</h3>
+<table><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr>
+<tr><td>FR-01</td><td>A visitor can view featured places on the Home page.</td><td>Essential</td></tr>
+<tr><td>FR-02</td><td>A visitor can view all destinations with photo, price and short description.</td><td>Essential</td></tr>
+<tr><td>FR-03</td><td>A visitor can search places by city or country name.</td><td>Essential</td></tr>
+<tr><td>FR-04</td><td>A visitor can filter places by category (Europe, Asia, Islands, Americas).</td><td>Essential</td></tr>
+<tr><td>FR-05</td><td>A traveller can choose a destination, trip type, dates, class and number of travellers.</td><td>Essential</td></tr>
+<tr><td>FR-06</td><td>The system shows the total price before booking and updates it when options change.</td><td>Essential</td></tr>
+<tr><td>FR-07</td><td>A traveller can enter name, email, phone and passport number.</td><td>Essential</td></tr>
+<tr><td>FR-08</td><td>The system checks the form and shows a clear message for each wrong field.</td><td>Essential</td></tr>
+<tr><td>FR-09</td><td>After a valid booking, the system shows a confirmation with a reference number.</td><td>Essential</td></tr>
+<tr><td>FR-10</td><td>A traveller can see saved bookings in My Trips.</td><td>Essential</td></tr>
+<tr><td>FR-11</td><td>A traveller can cancel a booking after confirming.</td><td>Important</td></tr>
+<tr><td>FR-12</td><td>A visitor can send a message from the Contact page.</td><td>Important</td></tr>
+<tr><td>FR-13</td><td>A visitor can read FAQ answers and watch flight videos.</td><td>Optional</td></tr>
+<tr><td>FR-14</td><td>(Future) An administrator can add, edit and delete destinations and see all bookings.</td><td>Future</td></tr><tr><td>FR-15</td><td>A visitor can create an account and log in with email and password; passwords must have at least 8 characters.</td><td>Essential</td></tr>
+<tr><td>FR-16</td><td>A visitor who is not logged in is sent to Login when booking, and returns to the booking after login.</td><td>Essential</td></tr>
+<tr><td>FR-17</td><td>A visitor can search flights by destination, dates, travellers and class, then sort by price or duration and filter direct flights.</td><td>Essential</td></tr>
+<tr><td>FR-18</td><td>A visitor can open a destination page with best time to visit and top things to do.</td><td>Important</td></tr>
+<tr><td>FR-19</td><td>A traveller can see a printable e-ticket after booking.</td><td>Important</td></tr>
+<tr><td>FR-20</td><td>A traveller can save favourite places and edit profile details.</td><td>Important</td></tr>
+</table>
+<h3>2.3 Non-functional requirements</h3>
+<table><tr><th>ID</th><th>Requirement</th></tr>
+<tr><td>NFR-01</td><td>The website must adapt to mobile (360 px), tablet and desktop screens.</td></tr>
+<tr><td>NFR-02</td><td>Main pages should load in under 3 seconds on a normal connection.</td></tr>
+<tr><td>NFR-03</td><td>Every form field must show an error message in plain English when wrong.</td></tr>
+<tr><td>NFR-04</td><td>Navigation must be the same on all pages.</td></tr>
+<tr><td>NFR-05</td><td>Text must be easy to read (dark text on light background, good contrast).</td></tr>
+<tr><td>NFR-06</td><td>The site must work in the latest Chrome, Edge, Firefox and Safari.</td></tr>
+<tr><td>NFR-07</td><td>The code must not contain passwords or private keys.</td></tr></table>
+<p><b>Assumptions:</b> prices are examples; no real payment. <b>Constraints:</b> bootcamp time; HTML, CSS, JavaScript only.</p>
+
+<h2 id="s3">3. Use Case Diagram and Descriptions</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+V([Visitor]) --- U1(View destinations)
+V --- U2(Search and filter)
+V --- U3(Send contact message)
+T([Traveller]) --- U4(Book ticket)
+T --- U5(View My Trips)
+T --- U6(Cancel booking)
+A([Administrator]) --- U7(Manage destinations)
+A --- U8(View all bookings)
+U4 -. includes .-> U9(Validate form)
+U4 -. includes .-> U10(Calculate price)
+</pre></div>
+<table><tr><th>Use case</th><th>Actor</th><th>Description</th></tr>
+<tr><td>Book ticket</td><td>Traveller</td><td><b>Steps:</b> choose place → choose trip type and dates → enter details → system validates → system saves and shows reference. <b>Alternative:</b> if a field is wrong, an error is shown and the user corrects it.</td></tr>
+<tr><td>View My Trips</td><td>Traveller</td><td>The system lists all saved bookings. If none, it shows an empty message with a link to book.</td></tr>
+<tr><td>Cancel booking</td><td>Traveller</td><td>User presses Cancel → confirms → booking is removed.</td></tr>
+<tr><td>Search and filter</td><td>Visitor</td><td>User types a name or selects a category; the list updates at once.</td></tr>
+<tr><td>Manage destinations</td><td>Administrator</td><td>Future feature: add, edit or delete places.</td></tr></table>
+
+<h2 id="s4">4. Conceptual Data Model (ERD)</h2>
+<div class="box"><pre class="mermaid">
+erDiagram
+USER ||--o{ BOOKING : makes
+DESTINATION ||--o{ BOOKING : "is booked in"
+CATEGORY ||--o{ DESTINATION : groups
+BOOKING ||--|{ PASSENGER : includes
+USER { int user_id PK
+ string full_name
+ string email
+ string phone
+ string role }
+CATEGORY { int category_id PK
+ string name }
+DESTINATION { int destination_id PK
+ int category_id FK
+ string city
+ string country
+ string description
+ string image_url
+ decimal base_price
+ string flight_time }
+BOOKING { int booking_id PK
+ int user_id FK
+ int destination_id FK
+ string reference
+ string trip_type
+ date departure_date
+ date return_date
+ string travel_class
+ decimal total_price
+ string status }
+PASSENGER { int passenger_id PK
+ int booking_id FK
+ string full_name
+ string passport_number }
+</pre></div>
+<p>Cardinality: one User makes many Bookings (1:N). One Destination has many Bookings (1:N). One Category has many Destinations (1:N). One Booking has one or more Passengers (1:N).</p>
+
+<h2 id="s5">5. Sitemap and Navigation</h2>
+<div class="box"><pre class="mermaid">
+flowchart TD
+H[Home] --> D[Destinations]
+H --> FL[Flights] --> CK[Checkout] --> TK[E-ticket]
+H --> L[Login / Register]
+H --> DD[Destination details]
+H --> M[My Trips]
+H --> PR[Profile and saved places]
+H --> A[About]
+H --> C[Contact]
+H --> F[FAQ section on Home]
+D --> DD --> FL
+A --> P[Project Documents]
+</pre></div>
+<p>The same top menu (Home, Destinations, Book Now, My Trips, About, Contact) appears on every page. On phones it becomes a ☰ menu. The footer repeats the page links.</p>
+
+<h2 id="s6">6. User Flow Diagrams</h2>
+<h3>Flow 1: Book a ticket</h3>
+<div class="box"><pre class="mermaid">
+flowchart TD
+S([Start]) --> H[Open Home page]
+H --> P[Search flights and choose one]
+P --> LG{Logged in?}
+LG -- No --> LI[Log in or register] --> F
+LG -- Yes --> F[Fill traveller details]
+F --> V{Form valid?}
+V -- No --> E[Show error messages] --> F
+V -- Yes --> OK[Save booking and show reference]
+OK --> T[See it in My Trips]
+T --> X([End])
+</pre></div>
+<h3>Flow 2: Cancel a booking</h3>
+<div class="box"><pre class="mermaid">
+flowchart TD
+S([Start]) --> M[Open My Trips]
+M --> Q{Any bookings?}
+Q -- No --> N[Show empty message and Book link]
+Q -- Yes --> C[Press Cancel]
+C --> Y{Confirm?}
+Y -- No --> M
+Y -- Yes --> R[Remove booking and update list]
+</pre></div>
+
+<h2 id="s7">7. Wireframes and UI/UX Design</h2>
+<p>Design choices: light sky-blue background, white cards, blue main buttons, orange accent, large photos, rounded corners, same spacing on all pages. Draw these in Figma and paste the link in Section 10. The final website pages are the high-fidelity design.</p>
+<div class="box"><pre>
+HOME                         DESTINATIONS                 BOOKING
++---------------------+      +---------------------+      +-----------------------+
+| Logo  menu...       |      | Logo  menu...       |      | Logo  menu...         |
+|  Fly far. Travel    |      | Title               |      | Title                 |
+|  [Discover][Book]   |      | [chips] [search]    |      | +-------------+ +---+ |
+|  ( hero photo )     |      | [card][card][card]  |      | | form fields | |sum| |
+| [From][To][Date][Go]|      | [card][card][card]  |      | | [Confirm]   | |mary|
+| featured cards      |      | footer              |      | +-------------+ +---+ |
+| steps | videos | FAQ|      +---------------------+      | footer                |
+| footer              |                                   +-----------------------+
++---------------------+
+MY TRIPS: title + cards (reference, route, dates, price, Cancel) or empty message.
+CONTACT: title + form (name, email, message) + office info.
+</pre></div>
+
+<h2 id="s8">8. Testing Checklist (Appendix C) – fill the last two columns when you test</h2>
+<table><tr><th>ID</th><th>Test</th><th>Expected result</th><th>Actual result</th><th>Status</th></tr>
+<tr><td>TC-01</td><td>Click each menu link</td><td>Correct page opens</td><td></td><td></td></tr>
+<tr><td>TC-02</td><td>Submit booking with empty fields</td><td>Error under each wrong field</td><td></td><td></td></tr>
+<tr><td>TC-03</td><td>Submit valid booking</td><td>Confirmation with reference</td><td></td><td></td></tr>
+<tr><td>TC-04</td><td>Wrong email and passport</td><td>Clear error messages</td><td></td><td></td></tr>
+<tr><td>TC-05</td><td>Open on phone (360 px)</td><td>Readable, ☰ menu works</td><td></td><td></td></tr>
+<tr><td>TC-06</td><td>Open on desktop</td><td>Layout is correct</td><td></td><td></td></tr>
+<tr><td>TC-07</td><td>Book, open My Trips, cancel</td><td>Booking appears, then disappears</td><td></td><td></td></tr>
+<tr><td>TC-08</td><td>Search "Paris" and use filters</td><td>List updates; empty message if none</td><td></td><td></td></tr>
+<tr><td>TC-09</td><td>Round trip with return before departure</td><td>Error message</td><td></td><td></td></tr>
+<tr><td>TC-10</td><td>Play the three videos</td><td>Videos play</td><td></td><td></td></tr>
+<tr><td>TC-11</td><td>Contact form with short message</td><td>Validation error</td><td></td><td></td></tr></table>
+<p><b>Known limitations:</b> bookings are saved only in the user's browser; photos need internet; no payment.</p>
+
+<h2 id="s9">9. Final Presentation Outline (10–15 minutes)</h2>
+<table><tr><th>Slide</th><th>Content</th><th>Speaker</th></tr>
+<tr><td>1</td><td>Title and team</td><td>Project Manager</td></tr><tr><td>2</td><td>Problem and users, how we gathered information</td><td>Business Analyst</td></tr>
+<tr><td>3</td><td>Key functional and non-functional requirements</td><td>Business Analyst</td></tr><tr><td>4</td><td>Use case diagram and ERD</td><td>Business Analyst</td></tr>
+<tr><td>5</td><td>Sitemap and user flows</td><td>UI/UX Designer</td></tr><tr><td>6</td><td>Wireframes and design decisions</td><td>UI/UX Designer</td></tr>
+<tr><td>7</td><td>Live demo of the website</td><td>Frontend Developer</td></tr><tr><td>8</td><td>Testing, challenges, teamwork, lessons, future work</td><td>QA &amp; Documentation</td></tr></table>
+
+<h2 id="s10">10. GitHub README and Team Project Record</h2>
+<div class="box"><pre>
+# SkyRoute
+Website to book flights from Kabul to beautiful places.
+## Technologies: React, Vite, Framer Motion, CSS3, JavaScript, Git, GitHub, Figma
+## Run: npm install, then npm run dev
+## Team: (names and roles)
+## Limits: demo only; bookings saved in the browser.
+</pre></div>
+<table><tr><th>Team name</th><td>SkyRoute Team</td></tr><tr><th>Project title</th><td>SkyRoute – Booking Flights from Kabul</td></tr><tr><th>GitHub URL</th><td>(add after you upload)</td></tr><tr><th>Live website URL</th><td>(add after you publish, e.g. on Vercel or GitHub Pages)</td></tr><tr><th>Figma URL</th><td>(add)</td></tr><tr><th>Project manager</th><td>(add)</td></tr><tr><th>Submission date</th><td>(add)</td></tr></table>
+<h3>AI use note</h3><p>AI helped create the first draft of the documents and code. The team must read, test and understand everything before submitting.</p>
+</main><script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad:true,theme:"base",themeVariables:{primaryColor:"#e8f1fd",primaryBorderColor:"#2f7de1",lineColor:"#2f7de1"}})</script></body></html>
